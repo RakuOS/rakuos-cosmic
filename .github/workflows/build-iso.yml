@@ -93,7 +93,7 @@ jobs:
           iso_name: "${{ env.IMAGE_NAME }}-${{ env.DEFAULT_TAG }}-${{ inputs.platform }}.iso"
           enable_cache_dnf: "false"
           enable_cache_skopeo: "false"
-          flatpak_remote_refs_dir: "./installer/flatpaks/${{ inputs.platform }}" # your Flatpak list folder
+          flatpak_remote_refs: app/org.mozilla.firefox/x86_64/stable app/org.gnome.Calculator/x86_64/stable app/org.gnome.Calendar/x86_64/stable app/org.gnome.Evince/x86_64/stable app/org.gnome.Loupe/x86_64/stable app/com.mattjakeman.ExtensionManager/x86_64/stable app/com.ranfdev.DistroShelf/x86_64/stable runtime/org.gtk.Gtk3theme.org.gtk.Gtk3theme.adw-gtk3/x86_64/3.22 runtime/org.gtk.Gtk3theme.adw-gtk3-dark/x86_64/3.22
           enable_flatpak_dependencies: "true"
           extra_boot_params: ""                      # optional kernel/boot parameters
           additional_templates: "/github/workspace/installer/lorax_templates/remove_spokes.tmpl"
