@@ -32,6 +32,7 @@ dnf5 -y install @fonts @hardware-support \
   gnome-initial-setup \
   nautilus \
   gnome-terminal \
+  gnome-tweaks \
   gnome-text-editor \
   file-roller \
   gnome-disk-utility \
