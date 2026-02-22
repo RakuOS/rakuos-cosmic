@@ -25,6 +25,7 @@ dnf5 -y install @fonts @hardware-support \
   gdm \
   gnome-session \
   gnome-shell \
+  gnome-backgrounds \
   gnome-control-center \
   gnome-software \
   gnome-initial-setup \
@@ -41,7 +42,7 @@ dnf5 -y install @fonts @hardware-support \
   scx-manager
 
 ## Remove packages
-#dnf5 -y remove 
+dnf5 -y remove gnome-software-rpm-ostree
 
 ## Enable Services
 systemctl enable gdm.service
