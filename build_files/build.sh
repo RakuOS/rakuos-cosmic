@@ -25,6 +25,7 @@ dnf5 -y install @fonts @hardware-support \
   gdm \
   gnome-session \
   gnome-shell \
+  gnome-settings-daemon \
   gnome-backgrounds \
   gnome-control-center \
   gnome-software \
