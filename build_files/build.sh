@@ -31,7 +31,7 @@ dnf5 -y install @fonts @hardware-support \
   gnome-software \
   gnome-initial-setup \
   nautilus \
-  gnome-terminal \
+  gnome-console \
   gnome-tweaks \
   gnome-text-editor \
   file-roller \
