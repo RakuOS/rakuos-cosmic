@@ -22,29 +22,36 @@ FEDORA_VERSION="${FEDORA_VERSION:-43}"
 
 ## Install packages
 dnf5 -y install @fonts @hardware-support \
-  gdm \
-  gnome-session \
-  gnome-shell \
-  gnome-settings-daemon \
-  gnome-backgrounds \
-  gnome-control-center \
-  gnome-software \
-  gnome-initial-setup \
-  nautilus \
-  gnome-console \
-  gnome-tweaks \
-  gnome-text-editor \
-  file-roller \
-  gnome-disk-utility \
-  gnome-system-monitor \
-  NetworkManager-bluetooth \
-  pipewire \
-  wireplumber \
-  xdg-desktop-portal-gnome \
+  cosmic-greeter \
+  cosmic-session \
+  cosmic-comp \
+  cosmic-panel \
+  cosmic-settings \
+  cosmic-settings-daemon \
+  cosmic-wallpapers \
+  cosmic-workspaces \
+  cosmic-applets \
+  cosmic-bg \
+  cosmic-files \
+  cosmic-launcher \
+  cosmic-app-library \
+  cosmic-store \
+  cosmic-edit \
+  cosmic-notifications \
+  cosmic-idle \
+  cosmic-osd \
+  cosmic-randr \
+  cosmic-screenshot \
+  cosmic-player \
+  cosmic-term \
+  cosmic-icon-theme \
+  cosmic-initial-setup \
+  xdg-desktop-portal-cosmic \
+  cutecosmic-qt6 \
   scx-manager
 
 ## Remove packages
-dnf5 -y remove gnome-software-rpm-ostree
+#dnf5 -y remove
 
 ## Enable Services
-systemctl enable gdm.service
+systemctl enable cosmic-greeter.service
