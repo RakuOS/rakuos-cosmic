@@ -1,7 +1,7 @@
-This repo builds the RakuOS GNOME image.
+This repo builds the RakuOS COSMIC image.
 
 Scope:
-- GNOME packages
+- COSMIC packages
 - Extensions
 - Default settings
 - ISO configuration

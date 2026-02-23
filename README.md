@@ -1,3 +1,3 @@
-# rakuos-kde
+# rakuos-cosmic
 
-This repo holds and builds the kde RakuOS Atomic cloud native images
+This repo holds and builds the COSMIC RakuOS Atomic cloud native images
