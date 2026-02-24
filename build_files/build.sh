@@ -54,7 +54,7 @@ dnf5 -y install @fonts @hardware-support \
 #dnf5 -y remove
 
 ## Enable COSMIC Flatpak repo
-flatpak remote-add --if-not-exists --user cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
+flatpak remote-add --if-not-exists cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
 
 ## Enable Services
 systemctl enable cosmic-greeter.service
