@@ -16,7 +16,6 @@ dnf5 -y install @fonts @hardware-support \
   cosmic-workspaces \
   cosmic-applets \
   cosmic-bg \
-  cosmic-files \
   cosmic-launcher \
   cosmic-app-library \
   cosmic-notifications \
