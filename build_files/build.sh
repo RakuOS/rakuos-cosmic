@@ -25,7 +25,8 @@ dnf5 -y install @fonts @hardware-support \
   cosmic-icon-theme \
   cosmic-initial-setup \
   xdg-desktop-portal-cosmic \
-  cutecosmic-qt6
+  cutecosmic-qt6 \
+  rakuos-welcome-cosmic
 
 ## Remove packages
 #dnf5 -y remove
