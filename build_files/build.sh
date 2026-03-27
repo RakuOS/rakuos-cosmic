@@ -5,7 +5,7 @@ set -ouex pipefail
 FEDORA_VERSION="${FEDORA_VERSION:-43}"
 
 ## Install packages
-dnf5 -y install @fonts @hardware-support \
+dnf5.real -y install @fonts @hardware-support \
   cosmic-greeter \
   cosmic-session \
   cosmic-comp \
@@ -29,7 +29,7 @@ dnf5 -y install @fonts @hardware-support \
   rakuos-welcome-cosmic
 
 ## Remove packages
-#dnf5 -y remove
+#dnf5.real -y remove
 
 ## Enable COSMIC Flatpak repo
 flatpak remote-add --if-not-exists cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
