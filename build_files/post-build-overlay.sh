@@ -59,5 +59,33 @@ sed -i -e '$a\' /var/lib/rakuos/packages.list
 echo "[rakuos] overlay.state cleared — first boot will install all packages."
 echo "[rakuos] Post-build seed complete."
 
+echo "Appending COSMIC protected packages to protected-packages.txt..."
+cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
+
+# COSMIC DE packages (from rakuos-cosmic/build_files/build.sh)
+cosmic-greeter
+cosmic-session
+cosmic-comp
+cosmic-panel
+cosmic-settings
+cosmic-settings-daemon
+cosmic-wallpapers
+cosmic-workspaces
+cosmic-applets
+cosmic-bg
+cosmic-launcher
+cosmic-app-library
+cosmic-notifications
+cosmic-idle
+cosmic-osd
+cosmic-randr
+cosmic-icon-theme
+cosmic-initial-setup
+xdg-desktop-portal-cosmic
+cutecosmic-qt6
+rakuos-welcome-cosmic
+rakuos-software-qt
+EOF
+
 echo "Generating base file manifest..."
 /usr/libexec/rakuos/generate-base-manifest
