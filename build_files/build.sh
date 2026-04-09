@@ -23,7 +23,6 @@ dnf5.real -y install @fonts @hardware-support \
   cosmic-osd \
   cosmic-randr \
   cosmic-icon-theme \
-  cosmic-initial-setup \
   xdg-desktop-portal-cosmic \
   cutecosmic-qt6 \
   rakuos-welcome-cosmic \
