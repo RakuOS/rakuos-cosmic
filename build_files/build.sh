@@ -26,7 +26,8 @@ dnf5.real -y install @fonts @hardware-support \
   xdg-desktop-portal-cosmic \
   cutecosmic-qt6 \
   rakuos-welcome-cosmic \
-  rakuos-software-qt
+  rakuos-software-qt \
+  rakuos-initial-setup-cosmic
 
 ## Remove packages
 #dnf5.real -y remove
@@ -35,4 +36,5 @@ dnf5.real -y install @fonts @hardware-support \
 flatpak remote-add --if-not-exists cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
 
 ## Enable Services
-systemctl enable cosmic-greeter.service
+systemctl enable cosmic-greeter.service \
+  rakuos-initial-setup.service
