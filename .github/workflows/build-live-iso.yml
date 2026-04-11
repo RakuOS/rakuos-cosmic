@@ -37,6 +37,7 @@ jobs:
         with:
           image-ref: ghcr.io/rakuos/rakuos-cosmic:latest
           hook-post-rootfs: ${{ github.workspace }}/config/configure-iso.sh
+          hook-pre-initramfs: ${{ github.workspace }}/config/pre_initramfs.sh
           compression: squashfs
           builder-distro: fedora
 
