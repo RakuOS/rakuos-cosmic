@@ -41,33 +41,18 @@ jobs:
           compression: squashfs
           builder-distro: fedora
 
-      - name: Rename ISO + Generate SHA256
+      - name: Rename and Checksum ISO
         run: |
-          ISO_PATH="${{ steps.build.outputs.iso-dest }}"
-
-          NEW_ISO="rakuos-cosmic-$(date +%Y%m%d).iso"
-
-          mv "$ISO_PATH" "$NEW_ISO"
-          sha256sum "$NEW_ISO" > "$NEW_ISO.sha256"
-
+          BUILD_DATE=$(date -u +%Y.%m.%d)
           mkdir -p output
-          mv "$NEW_ISO" "$NEW_ISO.sha256" output/
-
-          echo "NEW_ISO_NAME=$NEW_ISO" >> $GITHUB_ENV
-          echo "OUTPUT_DIR=$(pwd)/output" >> $GITHUB_ENV
+          mv ${{ steps.build.outputs.iso-dest }} output/rakuos-cosmic-${BUILD_DATE}-${{ inputs.platform }}.iso
+          (cd output && sha256sum rakuos-cosmic-${BUILD_DATE}-${{ inputs.platform }}.iso | tee rakuos-cosmic-${BUILD_DATE}-${{ inputs.platform }}.iso-CHECKSUM)
 
       # 📦 Upload artifacts to GitHub
-      - name: Upload disk images and checksum to Job Artifacts
-        if: github.event_name != 'pull_request'
+      - name: Upload ISO
         uses: actions/upload-artifact@v4
         with:
-          name: rakuos-cosmic-${{ inputs.platform }}
-          path: |
-            ${{ steps.build.outputs.iso-dest }}/${{ env.NEW_ISO_NAME }}
-            ${{ steps.build.outputs.iso-dest }}/${{ env.NEW_ISO_NAME }}.sha256
-          if-no-files-found: error
-          retention-days: 7
-          compression-level: 0
-          overwrite: true
+          name: custom-iso
+          path: output/
 
 
