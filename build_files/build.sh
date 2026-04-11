@@ -40,5 +40,4 @@ dnf5.real -y install @fonts @hardware-support \
 flatpak remote-add --if-not-exists cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
 
 ## Enable Services
-systemctl enable cosmic-greeter.service \
-  rakuos-initial-setup.service
+systemctl enable cosmic-greeter.service
