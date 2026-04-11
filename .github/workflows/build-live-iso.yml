@@ -35,8 +35,7 @@ jobs:
         id: build
         uses: ublue-os/titanoboa@main
         with:
-          image-ref: ghcr.io/rakuos/rakuos-gnome:latest
-          flatpaks-list: ${{ github.workspace }}/config/flatpaks.list
+          image-ref: ghcr.io/rakuos/rakuos-cosmic:latest
           hook-post-rootfs: ${{ github.workspace }}/config/configure-iso.sh
           compression: squashfs
           builder-distro: fedora
@@ -45,7 +44,7 @@ jobs:
         run: |
           ISO_PATH="${{ steps.build.outputs.iso-dest }}"
 
-          NEW_ISO="rakuos-gnome-$(date +%Y%m%d).iso"
+          NEW_ISO="rakuos-cosmic-$(date +%Y%m%d).iso"
 
           mv "$ISO_PATH" "$NEW_ISO"
           sha256sum "$NEW_ISO" > "$NEW_ISO.sha256"
@@ -56,64 +55,18 @@ jobs:
           echo "NEW_ISO_NAME=$NEW_ISO" >> $GITHUB_ENV
           echo "OUTPUT_DIR=$(pwd)/output" >> $GITHUB_ENV
 
-      # 🌐 ZeroTier
-      - name: Join ZeroTier Network
+      # 📦 Upload artifacts to GitHub
+      - name: Upload disk images and checksum to Job Artifacts
         if: github.event_name != 'pull_request'
-        uses: zerotier/github-action@v1
+        uses: actions/upload-artifact@v4
         with:
-          network_id: ${{ secrets.ZEROTIER_NETWORK_ID }}
-          auth_token: ${{ secrets.ZEROTIER_CENTRAL_TOKEN }}
+          name: rakuos-cosmic-${{ inputs.platform }}
+          path: |
+            ${{ steps.build.outputs.iso-dest }}/${{ env.NEW_ISO_NAME }}
+            ${{ steps.build.outputs.iso-dest }}/${{ env.NEW_ISO_NAME }}.sha256
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0
+          overwrite: true
 
-      - name: Wait for ZeroTier IP
-        if: github.event_name != 'pull_request'
-        run: |
-          sleep 10
-          ip addr show
-          ping -c 3 ${{ secrets.SFTP_HOST }}
-
-      # 🚀 Upload
-      - name: SFTP upload
-        if: github.event_name != 'pull_request'
-        uses: Dylan700/sftp-upload-action@latest
-        with:
-          server: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          port: 22
-          uploads: |
-            ${{ env.OUTPUT_DIR }}/ => ${{ secrets.SFTP_TARGET }}/
-          ignore: |
-            manifest-anaconda-iso.json
-            bootiso
-
-      # 🔄 Rotate latest
-      - name: Cleanup old ISO + update latest symlink
-        if: github.event_name != 'pull_request'
-        uses: appleboy/ssh-action@v1
-        with:
-          host: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          script: |
-            cd ${{ secrets.SFTP_TARGET }}
-
-            NEW="${{ env.NEW_ISO_NAME }}"
-            NEW_SHA="${NEW}.sha256"
-
-            LATEST_LINK="rakuos-gnome-latest.iso"
-            LATEST_SHA_LINK="${LATEST_LINK}.sha256"
-
-            OLD=$(readlink "$LATEST_LINK" || true)
-            OLD_SHA=$(readlink "$LATEST_SHA_LINK" || true)
-
-            ln -sf "$NEW" "$LATEST_LINK"
-            ln -sf "$NEW_SHA" "$LATEST_SHA_LINK"
-
-            if [ -n "$OLD" ] && [ "$OLD" != "$NEW" ]; then
-              rm -f "$OLD"
-            fi
-
-            if [ -n "$OLD_SHA" ] && [ "$OLD_SHA" != "$NEW_SHA" ]; then
-              rm -f "$OLD_SHA"
-            fi
 
