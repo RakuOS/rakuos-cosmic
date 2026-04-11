@@ -32,6 +32,10 @@ dnf5.real -y install @fonts @hardware-support \
 ## Remove packages
 #dnf5.real -y remove
 
+## Remove Fedora Wallpapers
+#rm -rf/usr/share/backgrounds/f${FEDORA_VERSION}
+#rm -rf/usr/share/backgrounds/f${FEDORA_VERSION}
+
 ## Enable COSMIC Flatpak repo
 flatpak remote-add --if-not-exists cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
 
