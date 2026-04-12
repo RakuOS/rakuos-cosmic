@@ -77,7 +77,7 @@ jobs:
       # 🔥 Build ISO using build-container-installer
       - name: Build ISO
         id: build
-        uses: jasonn3/build-container-installer@main
+        uses: jasonn3/build-container-installer@v1.4.0
         with:
           arch: ${{ inputs.platform == 'amd64' && 'x86_64' || inputs.platform == 'arm64' && 'aarch64' || inputs.platform }}
           image_name: ${{ env.IMAGE_NAME }}${{ matrix.variant == 'nvidia' && '-nvidia' || '' }}
