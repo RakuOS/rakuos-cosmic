@@ -85,7 +85,6 @@ xdg-desktop-portal-cosmic
 cutecosmic-qt6
 rakuos-welcome-cosmic
 rakuos-software-qt
-rakuos-initial-setup-cosmic
 EOF
 
 echo "Generating base file manifest..."

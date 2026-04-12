@@ -27,7 +27,7 @@ dnf5.real -y install @fonts @hardware-support \
   cutecosmic-qt6 \
   rakuos-welcome-cosmic \
   rakuos-software-qt \
-  rakuos-initial-setup-cosmic
+  cosmic-initial-setup
 
 ## Remove packages
 #dnf5.real -y remove
