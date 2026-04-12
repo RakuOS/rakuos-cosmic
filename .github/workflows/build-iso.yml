@@ -62,38 +62,60 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 🔥 Build ISO using titanoboa
+      - name: Lowercase Registry
+        id: registry_case
+        uses: ASzc/change-string-case-action@d0603cd0a7dd490be678164909f65c7737470a7f # v6
+        with:
+          string: ${{ env.IMAGE_REGISTRY }}
+
+      - name: Setup RakuOS Repo
+        id: setup-rakuos-repo
+        shell: bash
+        run: |
+          curl -Lo ${{ github.workspace }}/rakuos.repo https://copr.fedorainfracloud.org/coprs/tohur/RakuOS/repo/fedora-43/tohur-RakuOS-fedora-43.repo
+
+      # 🔥 Build ISO using build-container-installer
       - name: Build ISO
         id: build
-        uses: RakuOS/titanoboa@main
+        uses: jasonn3/build-container-installer@main
         with:
-          image-ref: ghcr.io/rakuos/${{ env.IMAGE_NAME }}${{ matrix.variant == 'nvidia' && '-nvidia' || '' }}:latest
-          hook-post-rootfs: ${{ github.workspace }}/config/configure-iso.sh
-          hook-pre-initramfs: ${{ github.workspace }}/config/pre_initramfs.sh
-          compression: squashfs
-          builder-distro: fedora
+          arch: ${{ inputs.platform == 'amd64' && 'x86_64' || inputs.platform == 'arm64' && 'aarch64' || inputs.platform }}
+          image_name: ${{ env.IMAGE_NAME }}${{ matrix.variant == 'nvidia' && '-nvidia' || '' }}
+          image_repo: ${{ steps.registry_case.outputs.lowercase }}
+          variant: "Kinoite"
+          version: 43
+          image_tag: ${{ env.DEFAULT_TAG }}
+          iso_name: "${{ env.IMAGE_NAME }}${{ matrix.variant == 'nvidia' && '-nvidia' || '' }}-${{ env.DEFAULT_TAG }}-${{ inputs.platform }}.iso"
+          enable_cache_dnf: "false"
+          enable_cache_skopeo: "false"
+          extra_boot_params: ""
+          additional_templates: "/github/workspace/installer/lorax_templates/remove_spokes.tmpl"
+          repos: '/github/workspace/rakuos.repo /etc/yum.repos.d/fedora.repo /etc/yum.repos.d/fedora-updates.repo'
+          web_ui: "false"
 
       # 🔥 Rename ISO with UTC date
       - name: Rename ISO
         if: github.event_name != 'pull_request'
         shell: bash
         run: |
+          cd ${{ steps.build.outputs.iso_path }}
           BUILD_DATE=$(date -u +%Y.%m.%d)
           if [[ "${{ matrix.variant }}" == "nvidia" ]]; then SUFFIX="-nvidia"; else SUFFIX=""; fi
-          mkdir -p output
+          ISO_PATH=$(find . -type f -name "*.iso" | head -n 1)
+          echo "Found ISO at $ISO_PATH"
           NEW_NAME="rakuos-cosmic${SUFFIX}-${BUILD_DATE}-${{ inputs.platform }}.iso"
-          mv ${{ steps.build.outputs.iso-dest }} output/${NEW_NAME}
-          cp output/${NEW_NAME} output/rakuos-cosmic${SUFFIX}-latest-${{ inputs.platform }}.iso
-          echo "NEW_ISO_NAME=${NEW_NAME}" >> $GITHUB_ENV
-          echo "BUILD_DATE=${BUILD_DATE}" >> $GITHUB_ENV
+          mv "$ISO_PATH" "$NEW_NAME"
+          cp "$NEW_NAME" "rakuos-cosmic${SUFFIX}-latest-${{ inputs.platform }}.iso"
+          echo "NEW_ISO_NAME=$NEW_NAME" >> $GITHUB_ENV
+          echo "BUILD_DATE=$BUILD_DATE" >> $GITHUB_ENV
 
       # 🔥 Generate SHA256 checksums
       - name: Generate SHA256 checksum
         if: github.event_name != 'pull_request'
         shell: bash
         run: |
+          cd ${{ steps.build.outputs.iso_path }}
           if [[ "${{ matrix.variant }}" == "nvidia" ]]; then SUFFIX="-nvidia"; else SUFFIX=""; fi
-          cd output
           sha256sum "$NEW_ISO_NAME" > "$NEW_ISO_NAME.sha256"
           sha256sum "rakuos-cosmic${SUFFIX}-latest-${{ inputs.platform }}.iso" > "rakuos-cosmic${SUFFIX}-latest-${{ inputs.platform }}.iso.sha256"
 
@@ -104,8 +126,8 @@ jobs:
         with:
           name: rakuos-cosmic-${{ matrix.variant }}-${{ inputs.platform }}
           path: |
-            output/${{ env.NEW_ISO_NAME }}
-            output/${{ env.NEW_ISO_NAME }}.sha256
+            ${{ steps.build.outputs.iso_path }}/${{ env.NEW_ISO_NAME }}
+            ${{ steps.build.outputs.iso_path }}/${{ env.NEW_ISO_NAME }}.sha256
           if-no-files-found: error
           retention-days: 7
           compression-level: 0
@@ -154,7 +176,29 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}
           port: 22
           uploads: |
-            output/ => ${{ secrets.SFTP_TARGET }}/
+            ${{ steps.build.outputs.iso_path }}/ => ${{ secrets.SFTP_TARGET }}/
+          ignore: |
+            .git
+            .github
+            build_files
+            config
+            disk_config
+            flatpak.*
+            installer
+            system_files
+            .gitignore
+            rakuos.repo
+            manifest-anaconda-iso.json
+            bootiso
+            LICENSE
+            README.md
+            CONTRIBUTING.md
+            CONDUCT.md
+            artifacthub-repo.yml
+            cosign.pub
+            *-CHECKSUM
+            Containerfile
+            Containerfile.nvidia
 
       # # 📤 Upload ISOs to SourceForge
       # - name: Upload to SourceForge
