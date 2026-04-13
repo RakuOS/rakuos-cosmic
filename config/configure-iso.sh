@@ -42,7 +42,6 @@ git clone --depth 1 --quiet https://github.com/RakuOS/rakuos-base.git /root/pack
 # fi
 # unset -v _icon
 # unset -v _icon_symbol
-rm -rf /root/packages
 
 # Default Kickstart
 cat <<EOF >>/usr/share/anaconda/interactive-defaults.ks
@@ -159,14 +158,14 @@ esac
 rm -vf /etc/profile.d/verify_motd.sh
 
 echo "Copying shared system files..."
-cp -af /src/system_files/shared/. /
+cp -af /root/packages/system_files/shared/. /
 
 if [[ "$desktop_env" == "gnome" ]]; then
     echo "Copying GNOME-specific system files..."
-    cp -a /src/system_files/gnome/. /
+    cp -a /root/packages/system_files/gnome/. /
 elif [[ "$desktop_env" == "kde" ]]; then
     echo "Copying KDE-specific system files..."
-    cp -a /src/system_files/kde/. /
+    cp -a /root/packages/system_files/kde/. /
 fi
 
 # Change default pins for KDE
@@ -178,3 +177,5 @@ fi
 ###############################
 #remove rakuos-welcome automatic launch for live environment
 rm -f /etc/xdg/autostart/rakuos-welcome.desktop
+
+rm -rf /root/packages
