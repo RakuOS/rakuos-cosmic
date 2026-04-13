@@ -158,14 +158,14 @@ esac
 rm -vf /etc/profile.d/verify_motd.sh
 
 echo "Copying shared system files..."
-cp -af /root/packages/system_files/shared/. /
+cp -af /root/packages/installer/system_files/shared/. /
 
 if [[ "$desktop_env" == "gnome" ]]; then
     echo "Copying GNOME-specific system files..."
     cp -a /root/packages/system_files/gnome/. /
 elif [[ "$desktop_env" == "kde" ]]; then
     echo "Copying KDE-specific system files..."
-    cp -a /root/packages/system_files/kde/. /
+    cp -a /root/packages/installer/system_files/kde/. /
 fi
 
 # Change default pins for KDE
