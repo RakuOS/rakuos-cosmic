@@ -139,6 +139,32 @@ bootc switch --mutate-in-place --enforce-container-sigpolicy --transport registr
 %end
 EOF
 
+### Desktop-enviroment specific tweaks ###
+# Setup script to show dialog popups at login
+
+# Use GSK_RENDERER=gl for nvidia, workaround for GTK apps not opening.
+if [[ $imageref == *-nvidia* ]]; then
+    mkdir -p /etc/environment.d /etc/skel/.config/environment.d
+    echo "GSK_RENDERER=gl" >>/etc/environment.d/99-nvidia-fix.conf
+    echo "GSK_RENDERER=gl" >>/etc/skel/.config/environment.d/99-nvidia-fix.conf
+fi
+
+# Reenable noveau.
+if [[ $imageref == *-nvidia* ]]; then
+    for pkg in nvidia-gpu-firmware mesa-vulkan-drivers; do
+        dnf -yq reinstall --allowerasing $pkg ||
+            dnf -yq install --allowerasing $pkg
+    done
+    # Ensure noveau vulkan icds exist
+    (
+        shopt -u nullglob
+        ls /usr/share/vulkan/icd.d/nouveau_icd.*.json >/dev/null
+    ) || {
+        echo >&2 "::error::No nouveau vulkan icds found at /usr/share/vulkan/icd.d/nouveau_icd.*.json"
+        exit 1
+    }
+fi
+
 # Determine desktop environment. Must match one of /usr/libexec/livesys/sessions.d/livesys-{desktop_env}
 # See https://github.com/ublue-os/titanoboa/blob/6c2e8ba58c7534b502081fe24363d2a60e7edca9/Justfile#L199-L213
 desktop_env=""
