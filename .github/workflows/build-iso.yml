@@ -156,17 +156,17 @@ jobs:
           uploads: |
             output/ => ${{ secrets.SFTP_TARGET }}/
 
-      # # 📤 Upload ISOs to SourceForge
-      # - name: Upload to SourceForge
-      #   if: github.event_name != 'pull_request'
-      #   uses: appleboy/ssh-action@v1
-      #   with:
-      #     host: ${{ secrets.SFTP_HOST }}
-      #     username: ${{ secrets.SFTP_USERNAME }}
-      #     password: ${{ secrets.SFTP_PASSWORD }}
-      #     script: |
-      #       if [[ "${{ matrix.variant }}" == "nvidia" ]]; then
-      #         sf-upload.sh --nvidia cosmic ${{ env.BUILD_DATE }}
-      #       else
-      #         sf-upload.sh cosmic ${{ env.BUILD_DATE }}
-      #       fi
+      # 📤 Upload ISOs to SourceForge
+      - name: Upload to SourceForge
+        if: github.event_name != 'pull_request'
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          script: |
+            if [[ "${{ matrix.variant }}" == "nvidia" ]]; then
+              sf-upload.sh --nvidia cosmic ${{ env.BUILD_DATE }}
+            else
+              sf-upload.sh cosmic ${{ env.BUILD_DATE }}
+            fi
