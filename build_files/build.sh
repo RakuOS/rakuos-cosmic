@@ -4,8 +4,13 @@ set -ouex pipefail
 
 CENTOS_VERSION=$(rpm -E %rhel)
 
+dnf.real -y copr enable ligenix/enterprise-cosmic rhel+epel-$(CENTOS_VERSION)-x86_64
+
+dnf.real -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(CENTOS_VERSION).noarch.rpm  
+dnf.real -y copr enable ligenix/enterprise-cosmic rhel+epel-$(CENTOS_VERSION)-x86_64
+
 ## Install packages
-dnf5.real -y install @fonts @hardware-support \
+dnf.real -y install @fonts @hardware-support \
   cosmic-greeter \
   cosmic-session \
   cosmic-comp \
@@ -28,13 +33,6 @@ dnf5.real -y install @fonts @hardware-support \
   rakuos-welcome-cosmic \
   rakuos-software-qt \
   cosmic-initial-setup
-
-## Remove packages
-#dnf5.real -y remove
-
-## Remove Fedora Wallpapers
-#rm -rf/usr/share/backgrounds/f${FEDORA_VERSION}
-#rm -rf/usr/share/backgrounds/f${FEDORA_VERSION}
 
 ## Enable COSMIC Flatpak repo
 flatpak remote-add --if-not-exists cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
