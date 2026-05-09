@@ -30,7 +30,8 @@ dnf5.real -y install @fonts @hardware-support \
   cosmic-initial-setup
 
 ## Remove packages
-#dnf5.real -y remove
+dnf5.real -y remove cosmic-term \
+  cosmic-files
 
 ## Remove Fedora Wallpapers
 #rm -rf/usr/share/backgrounds/f${FEDORA_VERSION}
