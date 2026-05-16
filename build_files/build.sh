@@ -23,14 +23,19 @@ dnf5.real -y install @fonts @hardware-support \
   cosmic-osd \
   cosmic-randr \
   cosmic-icon-theme \
+  cosmic-edit \
+  cosmic-player \
+  cosmic-files \
+  cosmic-term \
   xdg-desktop-portal-cosmic \
   cutecosmic-qt6 \
   rakuos-welcome-cosmic \
-  rakuos-software-qt \
+  rakuos-software-cosmic \
   cosmic-initial-setup
 
 ## Remove packages
-#dnf5.real -y remove
+# dnf5.real -y remove cosmic-term \
+#   cosmic-files
 
 ## Remove Fedora Wallpapers
 #rm -rf/usr/share/backgrounds/f${FEDORA_VERSION}
