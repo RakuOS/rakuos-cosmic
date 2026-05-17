@@ -54,11 +54,6 @@ sudo mkdir -p /usr/local/share/fonts/truetype && \
 sudo curl -fLo /usr/local/share/fonts/truetype/NotoColorEmoji.ttf "https://github.com/googlefonts/noto-emoji/raw/main/fonts/NotoColorEmoji.ttf" && \
 sudo fc-cache -f /usr/local/share/fonts/truetype
 
-## Add custom icons
-git clone https://github.com/vinceliuice/WhiteSur-icon-theme.git /tmp/WhiteSur-icon-theme
-/tmp/WhiteSur-icon-theme/install.sh -b -a -t all
-rm -rf /tmp/WhiteSur-icon-theme
-
 ## Remove Fedora Wallpapers
 rm -rf /usr/share/backgrounds/cosmic
 rm -rf /usr/share/backgrounds/fedora-workstation
