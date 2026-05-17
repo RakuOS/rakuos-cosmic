@@ -6,7 +6,7 @@ FEDORA_VERSION=$(rpm -E %fedora)
 
 
 ## Add cosmic extension copr
-dnf5 -y copr enable ligenix/cosmic-ext fedora-${FEDORA_VERSION}-x86_64
+dnf5.real -y copr enable ligenix/cosmic-ext fedora-${FEDORA_VERSION}-x86_64
 
 ## Install packages
 dnf5.real -y install @fonts @hardware-support \
