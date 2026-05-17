@@ -9,8 +9,7 @@ FEDORA_VERSION=$(rpm -E %fedora)
 dnf5.real -y copr enable ligenix/cosmic-ext fedora-${FEDORA_VERSION}-x86_64
 
 ## Install packages
-dnf5.real -y install @fonts @hardware-support \
-  cosmic-greeter \
+dnf5.real -y install cosmic-greeter \
   cosmic-session \
   cosmic-comp \
   cosmic-panel \
@@ -49,9 +48,9 @@ dnf5.real -y install @fonts @hardware-support \
 dnf5.real -y remove google-noto-color-emoji-fonts
 
 ## Emoji Cosmic Terminal fix
-sudo mkdir -p /usr/local/share/fonts/truetype && \
-sudo curl -fLo /usr/local/share/fonts/truetype/NotoColorEmoji.ttf "https://github.com/googlefonts/noto-emoji/raw/main/fonts/NotoColorEmoji.ttf" && \
-sudo fc-cache -f /usr/local/share/fonts/truetype
+mkdir -p /usr/local/share/fonts/truetype && \
+curl -fLo /usr/local/share/fonts/truetype/NotoColorEmoji.ttf "https://github.com/googlefonts/noto-emoji/raw/main/fonts/NotoColorEmoji.ttf" && \
+fc-cache -f /usr/local/share/fonts/truetype
 
 ## Remove Fedora Wallpapers
 rm -rf /usr/share/backgrounds/fedora-workstation
