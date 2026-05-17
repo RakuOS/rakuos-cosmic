@@ -16,7 +16,6 @@ dnf5.real -y install @fonts @hardware-support \
   cosmic-panel \
   cosmic-settings \
   cosmic-settings-daemon \
-  cosmic-wallpapers \
   cosmic-workspaces \
   cosmic-applets \
   cosmic-bg \
@@ -55,7 +54,6 @@ sudo curl -fLo /usr/local/share/fonts/truetype/NotoColorEmoji.ttf "https://githu
 sudo fc-cache -f /usr/local/share/fonts/truetype
 
 ## Remove Fedora Wallpapers
-rm -rf /usr/share/backgrounds/cosmic
 rm -rf /usr/share/backgrounds/fedora-workstation
 rm -rf /usr/share/backgrounds/images
 rm -rf /usr/share/backgrounds/f43
