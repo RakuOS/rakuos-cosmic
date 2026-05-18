@@ -4,7 +4,6 @@ ARG BASE_IMAGE_TAG="${BASE_IMAGE_TAG:-latest}"
 
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
-COPY build_files /
 
 # Pull the RakuOS base image from the GitLab Container Registry.
 # BASE_IMAGE_TAG is re-declared inside this stage (ARG values defined before
@@ -19,6 +18,9 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/log \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/build.sh && /ctx/post-build.sh && /ctx/post-build-overlay.sh
+
+# Copy system files
+COPY build_files /
 
 ### LINTING
 ## Verify final image and contents are correct.
