@@ -301,7 +301,7 @@ test-image-nvidia:
 
       echo "=== RPM DB stress test: Justfile + Anaconda packages ==="
       buildah run --isolation chroot --network host "${CTR}" -- \
-        dnf install -y --allowerasing \
+        dnf5.real install -y --allowerasing \
           --enable-repo=fedora-cisco-openh264 \
           dracut-live livesys-scripts fuse-overlayfs \
           anaconda-live libblockdev-btrfs libblockdev-lvm libblockdev-dm \
