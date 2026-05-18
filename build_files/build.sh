@@ -55,6 +55,8 @@ fc-cache -f /usr/share/fonts/google-noto-color-emoji-fonts
 ## Remove Fedora Wallpapers
 rm -rf /usr/share/backgrounds/fedora-workstation
 rm -rf /usr/share/backgrounds/images
+rm -rf /usr/share/backgrounds/cosmic
+rm -rf /usr/share/wallpapers/Next
 rm -rf /usr/share/backgrounds/f43
 rm -rf /usr/share/backgrounds/f44
 rm -f /usr/share/backgrounds/default.jxl
