@@ -48,9 +48,9 @@ dnf5.real -y install cosmic-greeter \
 dnf5.real -y remove google-noto-color-emoji-fonts
 
 ## Emoji Cosmic Terminal fix
-mkdir -p /usr/local/share/fonts/truetype && \
-curl -fLo /usr/local/share/fonts/truetype/NotoColorEmoji.ttf "https://github.com/googlefonts/noto-emoji/raw/main/fonts/NotoColorEmoji.ttf" && \
-fc-cache -f /usr/local/share/fonts/truetype
+mkdir -p /usr/share/fonts/google-noto-color-emoji-fonts && \
+curl -fLo /usr/share/fonts/google-noto-color-emoji-fonts/NotoColorEmoji.ttf "https://github.com/googlefonts/noto-emoji/raw/main/fonts/NotoColorEmoji.ttf" && \
+fc-cache -f /usr/share/fonts/google-noto-color-emoji-fonts
 
 ## Remove Fedora Wallpapers
 rm -rf /usr/share/backgrounds/fedora-workstation
