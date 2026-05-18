@@ -4,7 +4,6 @@ ARG BASE_IMAGE_TAG="${BASE_IMAGE_TAG:-latest}"
 
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
-COPY build_files /
 
 # Pull the RakuOS nvidia base image from the GitLab Container Registry.
 # BASE_IMAGE_TAG is re-declared inside this stage (ARG values defined before
