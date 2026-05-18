@@ -313,7 +313,7 @@ test-image-nvidia:
 
       echo "=== RPM DB stress test: NVIDIA packages ==="
       buildah run --isolation chroot --network host "${CTR}" -- \
-        bash -c 'for pkg in nvidia-gpu-firmware mesa-vulkan-drivers; do dnf5.real -yq reinstall --allowerasing "$pkg" || dnf -yq install --allowerasing "$pkg"; done'
+        bash -c 'for pkg in nvidia-gpu-firmware mesa-vulkan-drivers; do dnf5.real -yq reinstall --allowerasing "$pkg" || dnf5.real -yq install --allowerasing "$pkg"; done'
 
       buildah rm "${CTR}" || true
       echo "RPM DB stress test (NVIDIA) passed."
