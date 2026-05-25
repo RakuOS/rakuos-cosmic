@@ -168,6 +168,7 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   cosmic-player
   cosmic-files
   cosmic-term
+  cosmic-reader
   xdg-desktop-portal-cosmic
   cutecosmic-qt6
   rakuos-welcome-cosmic
