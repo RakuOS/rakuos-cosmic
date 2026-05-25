@@ -44,7 +44,8 @@ dnf5.real -y install cosmic-greeter \
   cosmic-ext-xcalendar \
   cosmic-ext-tasks \
   cosmic-ext-camera \
-  gnome-keyring-pam
+  gnome-keyring-pam \
+  system-config-printer
 
 ## Remove packages
 dnf5.real -y remove google-noto-color-emoji-fonts
