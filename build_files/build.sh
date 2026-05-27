@@ -50,9 +50,6 @@ dnf5.real -y install cosmic-greeter \
 ## Remove packages
 dnf5.real -y remove google-noto-color-emoji-fonts
 
-## remove cosmic-inital-setup autostart
-rm /etc/xdg/autostart/com.system76.CosmicInitialSetup.desktop
-
 ## Emoji Cosmic Terminal fix
 mkdir -p /usr/share/fonts/google-noto-color-emoji-fonts && \
 curl -fLo /usr/share/fonts/google-noto-color-emoji-fonts/NotoColorEmoji.ttf "https://github.com/googlefonts/noto-emoji/raw/main/fonts/NotoColorEmoji.ttf" && \
