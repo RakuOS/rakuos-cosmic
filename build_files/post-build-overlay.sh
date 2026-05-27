@@ -173,7 +173,6 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   cutecosmic-qt6
   rakuos-welcome-cosmic
   rakuos-software-qt
-  cosmic-initial-setup
   cosmic-ext-calculator
   cosmic-ext-storage
   cosmic-ext-applet-clipboard-manager
@@ -183,6 +182,9 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   cosmic-ext-xcalendar
   cosmic-ext-tasks
   cosmic-ext-camera
+  gnome-keyring-pam
+  system-config-printer
+  bluez-cups
 EOF
 
 echo "Generating base file manifest..."
