@@ -34,7 +34,6 @@ dnf5.real -y install cosmic-greeter \
   cutecosmic-qt6 \
   rakuos-welcome-cosmic \
   rakuos-software-qt \
-  cosmic-initial-setup \
   cosmic-ext-calculator \
   cosmic-ext-storage \
   cosmic-ext-applet-clipboard-manager \
