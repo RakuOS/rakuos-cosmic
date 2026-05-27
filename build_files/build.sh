@@ -48,7 +48,7 @@ dnf5.real -y install cosmic-greeter \
   bluez-cups
 
 ## Remove packages
-dnf5.real -y remove google-noto-color-emoji-fonts cosmic-initial-setup
+dnf5.real -y remove google-noto-color-emoji-fonts
 
 ## Emoji Cosmic Terminal fix
 mkdir -p /usr/share/fonts/google-noto-color-emoji-fonts && \
