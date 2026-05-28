@@ -42,6 +42,8 @@ dnf5.real -y install bluez-cups \
   cosmic-workspaces \
   cutecosmic-qt6 \
   gnome-keyring-pam \
+  NetworkManager-openvpn-gnome \
+  NetworkManager-strongswan-gnome \
   rakuos-software-qt \
   rakuos-welcome-cosmic \
   system-config-printer \
