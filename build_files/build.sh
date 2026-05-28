@@ -9,43 +9,43 @@ FEDORA_VERSION=$(rpm -E %fedora)
 dnf5.real -y copr enable ligenix/cosmic-ext fedora-${FEDORA_VERSION}-x86_64
 
 ## Install packages
-dnf5.real -y install cosmic-greeter \
-  cosmic-session \
-  cosmic-comp \
-  cosmic-panel \
-  cosmic-settings \
-  cosmic-settings-daemon \
-  cosmic-workspaces \
+dnf5.real -y install bluez-cups \
+  cosmic-app-library \
   cosmic-applets \
   cosmic-bg \
-  cosmic-launcher \
-  cosmic-app-library \
-  cosmic-notifications \
-  cosmic-idle \
-  cosmic-osd \
-  cosmic-randr \
-  cosmic-icon-theme \
+  cosmic-comp \
   cosmic-edit \
-  cosmic-player \
-  cosmic-files \
-  cosmic-term \
-  cosmic-reader \
-  xdg-desktop-portal-cosmic \
-  cutecosmic-qt6 \
-  rakuos-welcome-cosmic \
-  rakuos-software-qt \
-  cosmic-ext-calculator \
-  cosmic-ext-storage \
   cosmic-ext-applet-clipboard-manager \
-  cosmic-ext-noctua \
-  cosmic-ext-applet-sysinfo \
   cosmic-ext-applet-logomenu \
-  cosmic-ext-xcalendar \
-  cosmic-ext-tasks \
+  cosmic-ext-applet-sysinfo \
+  cosmic-ext-calculator \
   cosmic-ext-camera \
+  cosmic-ext-noctua \
+  cosmic-ext-storage \
+  cosmic-ext-tasks \
+  cosmic-ext-xcalendar \
+  cosmic-files \
+  cosmic-greeter \
+  cosmic-icon-theme \
+  cosmic-idle \
+  cosmic-launcher \
+  cosmic-notifications \
+  cosmic-osd \
+  cosmic-panel \
+  cosmic-player \
+  cosmic-randr \
+  cosmic-reader \
+  cosmic-session \
+  cosmic-settings \
+  cosmic-settings-daemon \
+  cosmic-term \
+  cosmic-workspaces \
+  cutecosmic-qt6 \
   gnome-keyring-pam \
+  rakuos-software-qt \
+  rakuos-welcome-cosmic \
   system-config-printer \
-  bluez-cups
+  xdg-desktop-portal-cosmic
 
 ## Remove packages
 dnf5.real -y remove google-noto-color-emoji-fonts
