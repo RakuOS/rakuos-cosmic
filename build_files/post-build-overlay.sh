@@ -183,6 +183,8 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   cosmic-ext-tasks
   cosmic-ext-camera
   gnome-keyring-pam
+  NetworkManager-openvpn-gnome
+  NetworkManager-strongswan-gnome
   system-config-printer
   bluez-cups
 EOF
