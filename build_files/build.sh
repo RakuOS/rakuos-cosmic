@@ -24,6 +24,7 @@ dnf5.real -y install bluez-cups \
   cosmic-ext-storage \
   cosmic-ext-tasks \
   cosmic-ext-xcalendar \
+  cosmic-ext-applet-flux \
   cosmic-files \
   cosmic-greeter \
   cosmic-icon-theme \

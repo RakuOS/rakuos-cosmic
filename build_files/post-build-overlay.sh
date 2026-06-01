@@ -182,6 +182,7 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   cosmic-ext-xcalendar
   cosmic-ext-tasks
   cosmic-ext-camera
+  cosmic-ext-applet-flux
   gnome-keyring-pam
   NetworkManager-openvpn-gnome
   NetworkManager-strongswan-gnome
