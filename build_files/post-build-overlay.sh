@@ -188,6 +188,7 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   NetworkManager-strongswan-gnome
   system-config-printer
   bluez-cups
+  scx-manager
 EOF
 
 echo "Generating base file manifest..."

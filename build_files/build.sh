@@ -47,6 +47,7 @@ dnf5.real -y install bluez-cups \
   NetworkManager-strongswan-gnome \
   rakuos-software-qt \
   rakuos-welcome-cosmic \
+  scx-manager \
   system-config-printer \
   xdg-desktop-portal-cosmic
 
