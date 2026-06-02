@@ -148,28 +148,47 @@ echo "Appending COSMIC protected packages to protected-packages.txt..."
 cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
 
 # COSMIC DE packages (from rakuos-cosmic/build_files/build.sh)
-cosmic-greeter
-cosmic-session
-cosmic-comp
-cosmic-panel
-cosmic-settings
-cosmic-settings-daemon
-cosmic-wallpapers
-cosmic-workspaces
-cosmic-applets
-cosmic-bg
-cosmic-launcher
-cosmic-app-library
-cosmic-notifications
-cosmic-idle
-cosmic-osd
-cosmic-randr
-cosmic-icon-theme
-cosmic-initial-setup
-xdg-desktop-portal-cosmic
-cutecosmic-qt6
-rakuos-welcome-cosmic
-rakuos-software-qt
+  cosmic-greeter
+  cosmic-session
+  cosmic-comp
+  cosmic-panel
+  cosmic-settings
+  cosmic-settings-daemon
+  cosmic-workspaces
+  cosmic-applets
+  cosmic-bg
+  cosmic-launcher
+  cosmic-app-library
+  cosmic-notifications
+  cosmic-idle
+  cosmic-osd
+  cosmic-randr
+  cosmic-icon-theme
+  cosmic-edit
+  cosmic-player
+  cosmic-files
+  cosmic-term
+  cosmic-reader
+  xdg-desktop-portal-cosmic
+  cutecosmic-qt6
+  rakuos-welcome-cosmic
+  rakuos-software-qt
+  cosmic-ext-calculator
+  cosmic-ext-storage
+  cosmic-ext-applet-clipboard-manager
+  cosmic-ext-noctua
+  cosmic-ext-applet-sysinfo
+  cosmic-ext-applet-logomenu
+  cosmic-ext-xcalendar
+  cosmic-ext-tasks
+  cosmic-ext-camera
+  cosmic-ext-applet-flux
+  gnome-keyring-pam
+  NetworkManager-openvpn-gnome
+  NetworkManager-strongswan-gnome
+  system-config-printer
+  bluez-cups
+  scx-manager
 EOF
 
 echo "Generating base file manifest..."
