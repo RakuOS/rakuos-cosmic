@@ -77,4 +77,4 @@ flatpak remote-add --if-not-exists cosmic https://apt.pop-os.org/cosmic/cosmic.f
 systemctl enable cosmic-greeter.service
 
 ## Enable user service
-systemctl enable --global cosmic-flux-daemon.service
+#systemctl enable --global cosmic-flux-daemon.service
