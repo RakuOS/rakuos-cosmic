@@ -4,10 +4,6 @@ set -ouex pipefail
 
 FEDORA_VERSION=$(rpm -E %fedora)
 
-
-## Add cosmic extension copr
-#dnf5.real -y copr enable ligenix/cosmic-ext fedora-${FEDORA_VERSION}-x86_64
-
 ## Install packages
 dnf5.real -y install bluez-cups \
   cosmic-app-library \
