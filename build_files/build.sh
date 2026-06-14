@@ -4,10 +4,6 @@ set -ouex pipefail
 
 FEDORA_VERSION=$(rpm -E %fedora)
 
-
-## Add cosmic extension copr
-dnf5.real -y copr enable ligenix/cosmic-ext fedora-${FEDORA_VERSION}-x86_64
-
 ## Install packages
 dnf5.real -y install bluez-cups \
   cosmic-app-library \
@@ -24,7 +20,6 @@ dnf5.real -y install bluez-cups \
   cosmic-ext-storage \
   cosmic-ext-tasks \
   cosmic-ext-xcalendar \
-  cosmic-ext-applet-flux \
   cosmic-files \
   cosmic-greeter \
   cosmic-icon-theme \
@@ -77,4 +72,4 @@ flatpak remote-add --if-not-exists cosmic https://apt.pop-os.org/cosmic/cosmic.f
 systemctl enable cosmic-greeter.service
 
 ## Enable user service
-systemctl enable --global cosmic-flux-daemon.service
+#systemctl enable --global cosmic-flux-daemon.service
