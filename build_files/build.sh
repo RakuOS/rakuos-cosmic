@@ -40,6 +40,7 @@ dnf5.real -y install bluez-cups \
   gnome-keyring-pam \
   NetworkManager-openvpn-gnome \
   NetworkManager-strongswan-gnome \
+  NetworkManager-wifi \
   rakuos-software-qt \
   rakuos-welcome-cosmic \
   scx-manager \
