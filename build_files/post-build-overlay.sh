@@ -175,7 +175,7 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   rakuos-software-qt
   cosmic-ext-calculator
   cosmic-ext-storage
-  cosmic-ext-applet-clipboard-manager
+  cosmic-applet-clippy-land
   cosmic-ext-noctua
   cosmic-ext-applet-sysinfo
   cosmic-ext-applet-logomenu
