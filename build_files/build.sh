@@ -11,7 +11,7 @@ dnf5.real -y install bluez-cups \
   cosmic-bg \
   cosmic-comp \
   cosmic-edit \
-  cosmic-ext-applet-clipboard-manager \
+  cosmic-applet-clippy-land \
   cosmic-ext-applet-logomenu \
   cosmic-ext-applet-sysinfo \
   cosmic-ext-calculator \
