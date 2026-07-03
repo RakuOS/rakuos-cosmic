@@ -5,7 +5,9 @@ set -ouex pipefail
 FEDORA_VERSION=$(rpm -E %fedora)
 
 ## Install packages
-dnf5.real -y install bluez-cups \
+dnf5.real -y install \
+  --exclude=noctalia* \
+  bluez-cups \
   cosmic-app-library \
   cosmic-applets \
   cosmic-bg \
