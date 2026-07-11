@@ -4,8 +4,6 @@ set -ouex pipefail
 
 FEDORA_VERSION=$(rpm -E %fedora)
 
-rm /etc/dnf/protected.d/selinux-policy-targeted.conf
-
 ## Install packages
 dnf5.real -y install \
   --exclude=noctalia* \
