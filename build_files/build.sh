@@ -68,7 +68,7 @@ rm -f /usr/share/backgrounds/default-dark.jxl
 rm -f /usr/share/backgrounds/default.xml
 
 ## Enable COSMIC Flatpak repo
-flatpak remote-add --if-not-exists cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
+#flatpak remote-add --if-not-exists cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
 
 ## Enable Services
 systemctl enable cosmic-greeter.service
