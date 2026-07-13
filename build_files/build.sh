@@ -71,7 +71,8 @@ rm -f /usr/share/backgrounds/default.xml
 flatpak remote-add --if-not-exists cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
 
 ## Enable Services
-systemctl enable cosmic-greeter.service
+systemctl enable cosmic-greeter.service \
+cosmic-ext-storage-daemon.service 
 
 ## Enable user service
 #systemctl enable --global cosmic-flux-daemon.service
