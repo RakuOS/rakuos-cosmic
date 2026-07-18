@@ -27,6 +27,7 @@ dnf5.real -y install \
   cosmic-icon-theme \
   cosmic-idle \
   cosmic-launcher \
+  cosmic-monitor \
   cosmic-notifications \
   cosmic-osd \
   cosmic-panel \
