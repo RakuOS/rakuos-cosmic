@@ -45,6 +45,7 @@ dnf5.real -y install \
   NetworkManager-wifi \
   rakuos-software-qt \
   rakuos-welcome-cosmic \
+  scx-manager \
   system-config-printer \
   xdg-desktop-portal-cosmic
 
