@@ -172,6 +172,7 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   xdg-desktop-portal-cosmic
   cutecosmic-qt6
   rakuos-welcome-cosmic
+  rakuos-release-cosmic
   rakuos-software-qt
   cosmic-ext-calculator
   cosmic-ext-storage

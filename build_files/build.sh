@@ -44,6 +44,7 @@ dnf5.real -y install \
   NetworkManager-openvpn-gnome \
   NetworkManager-strongswan-gnome \
   NetworkManager-wifi \
+  rakuos-release-cosmic \
   rakuos-software-qt \
   rakuos-welcome-cosmic \
   system-config-printer \
@@ -73,7 +74,7 @@ rm -f /usr/share/backgrounds/default.xml
 
 ## Enable Services
 systemctl enable cosmic-greeter.service \
-cosmic-ext-storage-daemon.service 
+cosmic-ext-storage-daemon.service
 
 ## Enable user service
 #systemctl enable --global cosmic-flux-daemon.service
