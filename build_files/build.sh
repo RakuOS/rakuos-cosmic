@@ -44,6 +44,7 @@ dnf5.real -y install \
   NetworkManager-openvpn-gnome \
   NetworkManager-strongswan-gnome \
   NetworkManager-wifi \
+  rakuos-release-cosmic \
   rakuos-software-qt \
   rakuos-welcome-cosmic \
   system-config-printer \
@@ -69,11 +70,11 @@ rm -f /usr/share/backgrounds/default-dark.jxl
 rm -f /usr/share/backgrounds/default.xml
 
 ## Enable COSMIC Flatpak repo
-flatpak remote-add --if-not-exists cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
+#flatpak remote-add --if-not-exists cosmic https://apt.pop-os.org/cosmic/cosmic.flatpakrepo
 
 ## Enable Services
 systemctl enable cosmic-greeter.service \
-cosmic-ext-storage-daemon.service 
+cosmic-ext-storage-daemon.service
 
 ## Enable user service
 #systemctl enable --global cosmic-flux-daemon.service
