@@ -44,6 +44,7 @@ dnf5.real -y install \
   NetworkManager-openvpn-gnome \
   NetworkManager-strongswan-gnome \
   NetworkManager-wifi \
+  libXcursor.i686 \
   rakuos-release-cosmic \
   rakuos-software-qt \
   rakuos-welcome-cosmic \
