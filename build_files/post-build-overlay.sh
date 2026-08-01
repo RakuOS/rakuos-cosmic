@@ -92,6 +92,8 @@ prebake_overlay_from_installroot() {
         --setopt=tsflags=noscripts \
         install -y --refresh "${prebake_packages[@]}"
 
+    rm -f "$installroot/usr/share/icons/default/index.theme"
+
     echo "[rakuos] Copying prebaked /usr payload into overlay upper..."
     rm -rf "$UPPER_DIR" "$WORK_DIR" "$PKG_CACHE_DIR"
     mkdir -p "$UPPER_DIR" "$WORK_DIR" "$PKG_CACHE_DIR"
