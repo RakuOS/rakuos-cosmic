@@ -47,6 +47,7 @@ dnf5.real -y install \
   cosmic-settings-daemon \
   cosmic-term \
   cosmic-workspaces \
+  cosmic-ext-applet-workspace-icons \
   cutecosmic-qt6 \
   gnome-keyring-pam \
   NetworkManager-openvpn-gnome \
