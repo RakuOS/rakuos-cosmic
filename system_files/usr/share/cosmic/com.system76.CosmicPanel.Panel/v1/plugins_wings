@@ -1,8 +1,7 @@
 Some(([
     "dev.cappsy.CosmicExtAppletLogoMenu",
-    "com.system76.CosmicAppletWorkspaces",
+    "io.github.crocodile.cosmic-ext-applet-workspace-icons",
 ], [
-    "wf.origami.UpdateApplet",
     "com.system76.CosmicAppletStatusArea",
     "com.system76.CosmicAppletAudio",
     "com.system76.CosmicAppletBluetooth",

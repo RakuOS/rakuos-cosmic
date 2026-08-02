@@ -4,6 +4,14 @@ set -ouex pipefail
 
 FEDORA_VERSION=$(rpm -E %fedora)
 
+# On the staging branch (RAKUOS_STAGING=1, set via --build-arg from CI)
+# install the staging os-release identity instead of the stable one, so
+# staging images identify themselves as "RakuOS COSMIC Staging".
+RAKUOS_RELEASE_PKG="rakuos-release-cosmic"
+if [ "${RAKUOS_STAGING:-0}" = "1" ]; then
+    RAKUOS_RELEASE_PKG="rakuos-release-cosmic-staging"
+fi
+
 ## Install packages
 dnf5.real -y install \
   --exclude=noctalia* \
@@ -39,12 +47,13 @@ dnf5.real -y install \
   cosmic-settings-daemon \
   cosmic-term \
   cosmic-workspaces \
+  cosmic-ext-applet-workspace-icons \
   cutecosmic-qt6 \
   gnome-keyring-pam \
   NetworkManager-openvpn-gnome \
   NetworkManager-strongswan-gnome \
   NetworkManager-wifi \
-  rakuos-release-cosmic \
+  ${RAKUOS_RELEASE_PKG} \
   rakuos-software-qt \
   rakuos-welcome-cosmic \
   system-config-printer \
