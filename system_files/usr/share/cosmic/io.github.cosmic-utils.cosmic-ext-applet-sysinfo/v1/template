@@ -1,1 +1,0 @@
-"GPU {gpu_temp} {gpu_usage} | CPU {cpu_temp} {cpu_usage} | RAM {ram_usage} | INET ↓{dl_speed} ↑{ul_speed}"
