@@ -14,7 +14,7 @@ fi
 
 ## Install packages
 rum install -y \
-  --exclude=noctalia* \
+  --exclude=noctalia* --skip-broken --skip-unavailable \
   bluez-cups \
   cosmic-app-library \
   cosmic-applets \
