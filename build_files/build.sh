@@ -13,8 +13,8 @@ if [ "${RAKUOS_STAGING:-0}" = "1" ]; then
 fi
 
 ## Install packages
-dnf5.real -y install \
-  --exclude=noctalia* \
+rum install -y \
+  --exclude=noctalia* --skip-broken --skip-unavailable \
   bluez-cups \
   cosmic-app-library \
   cosmic-applets \
@@ -60,7 +60,7 @@ dnf5.real -y install \
   xdg-desktop-portal-cosmic
 
 ## Remove packages
-dnf5.real -y remove google-noto-color-emoji-fonts
+rum remove -y google-noto-color-emoji-fonts
 
 ## Emoji Cosmic Terminal fix
 mkdir -p /usr/share/fonts/google-noto-color-emoji-fonts && \
