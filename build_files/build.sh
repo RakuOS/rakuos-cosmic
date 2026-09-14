@@ -58,6 +58,7 @@ rum install -y \
   NetworkManager-openvpn-gnome \
   NetworkManager-strongswan-gnome \
   NetworkManager-wifi \
+  pipewire-pulseaudio \
   ${RAKUOS_RELEASE_PKG} \
   rakuos-software-qt \
   rakuos-welcome-cosmic \
