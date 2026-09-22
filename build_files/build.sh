@@ -63,7 +63,6 @@ rum install -y \
   rakuos-software-qt \
   rakuos-system-cosmic \
   rakuos-welcome-cosmic \
-  scx-manager \
   system-config-printer \
   xdg-desktop-portal-cosmic
 
