@@ -61,6 +61,7 @@ rum install -y \
   pipewire-pulseaudio \
   ${RAKUOS_RELEASE_PKG} \
   rakuos-software-qt \
+  rakuos-system-cosmic \
   rakuos-welcome-cosmic \
   system-config-printer \
   xdg-desktop-portal-cosmic
