@@ -134,6 +134,7 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   cosmic-icon-theme
   cosmic-edit
   cosmic-player
+  cosmic-monitor
   cosmic-files
   cosmic-term
   cosmic-reader
@@ -141,7 +142,9 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   cutecosmic-qt6
   rakuos-welcome-cosmic
   rakuos-release-cosmic
+  rakuos-release-cosmic-staging
   rakuos-software-qt
+  rakuos-system-cosmic
   cosmic-ext-calculator
   cosmic-ext-storage
   cosmic-applet-clippy-land
@@ -151,7 +154,6 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   cosmic-ext-xcalendar
   cosmic-ext-tasks
   cosmic-ext-camera
-  cosmic-ext-applet-flux
   cosmic-ext-applet-workspace-icons
   gnome-keyring-pam
   NetworkManager-openvpn-gnome
