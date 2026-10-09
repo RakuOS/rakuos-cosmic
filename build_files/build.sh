@@ -20,11 +20,6 @@ rum config-manager --set-enabled terra
 ## Install packages
 rum install -y \
   --exclude=noctalia* --skip-broken --skip-unavailable \
-  bluez-cups \
-  cosmic-app-library \
-  cosmic-applets \
-  cosmic-bg \
-  cosmic-comp \
   cosmic-edit \
   cosmic-applet-clippy-land \
   cosmic-ext-applet-logomenu \
@@ -35,36 +30,20 @@ rum install -y \
   cosmic-ext-storage \
   cosmic-ext-tasks \
   cosmic-ext-xcalendar \
-  cosmic-files \
-  cosmic-greeter \
-  cosmic-icon-theme \
-  cosmic-idle \
-  cosmic-launcher \
   cosmic-monitor \
-  cosmic-notifications \
-  cosmic-osd \
-  cosmic-panel \
   cosmic-player \
-  cosmic-randr \
   cosmic-reader \
   cosmic-session \
-  cosmic-settings \
-  cosmic-settings-daemon \
-  cosmic-term \
-  cosmic-workspaces \
   cosmic-ext-applet-workspace-icons \
   cutecosmic-qt6 \
   gnome-keyring-pam \
   NetworkManager-openvpn-gnome \
   NetworkManager-strongswan-gnome \
-  NetworkManager-wifi \
-  pipewire-pulseaudio \
   ${RAKUOS_RELEASE_PKG} \
   rakuos-software-qt \
   rakuos-system-cosmic \
   rakuos-welcome-cosmic \
-  system-config-printer \
-  xdg-desktop-portal-cosmic
+  system-config-printer
 
 ## Remove packages
 rum remove -y google-noto-color-emoji-fonts
