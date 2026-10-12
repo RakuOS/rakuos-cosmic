@@ -26,7 +26,7 @@ rum install -y \
   cosmic-ext-applet-sysinfo \
   cosmic-ext-calculator \
   cosmic-ext-camera \
-  cosmic-ext-noctua \
+  cosmic-viewer \
   cosmic-ext-storage \
   cosmic-ext-tasks \
   cosmic-ext-xcalendar \
