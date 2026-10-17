@@ -15,7 +15,10 @@ fi
 # Terra ships disabled by default (third-party repos are opt-in), so enable
 # it here in case any packages below come from Terra; post-build.sh disables
 # it again before the image is finalized.
-rum config-manager --set-enabled terra
+rum config-manager --default --set-enabled terra
+# RPM Fusion is disabled in the base image too; turn its default repos back
+# on (the list base post-build.sh recorded). post-build.sh disables them again.
+rum config-manager --default --set-enabled $(cat /usr/share/rakuos/rpmfusion-default-repos)
 
 ## Install packages
 rum install -y \
@@ -26,7 +29,7 @@ rum install -y \
   cosmic-ext-applet-sysinfo \
   cosmic-ext-calculator \
   cosmic-ext-camera \
-  cosmic-ext-noctua \
+  cosmic-viewer \
   cosmic-ext-storage \
   cosmic-ext-tasks \
   cosmic-ext-xcalendar \
