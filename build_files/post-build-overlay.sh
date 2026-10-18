@@ -152,7 +152,6 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   cosmic-ext-applet-sysinfo
   cosmic-ext-applet-logomenu
   cosmic-ext-xcalendar
-  cosmic-ext-tasks
   cosmic-ext-camera
   cosmic-ext-applet-workspace-icons
   gnome-keyring-pam

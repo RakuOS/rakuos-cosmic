@@ -31,7 +31,6 @@ rum install -y \
   cosmic-ext-camera \
   cosmic-viewer \
   cosmic-ext-storage \
-  cosmic-ext-tasks \
   cosmic-ext-xcalendar \
   cosmic-monitor \
   cosmic-player \
