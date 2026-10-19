@@ -38,7 +38,6 @@ rum install -y \
   cosmic-session \
   cosmic-ext-applet-workspace-icons \
   cutecosmic-qt6 \
-  gnome-keyring-pam \
   NetworkManager-openvpn-gnome \
   NetworkManager-strongswan-gnome \
   ${RAKUOS_RELEASE_PKG} \
