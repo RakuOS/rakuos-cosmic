@@ -143,7 +143,7 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   rakuos-welcome-cosmic
   rakuos-release-cosmic
   rakuos-release-cosmic-staging
-  rakuos-software-qt
+  rakuos-software-cosmic
   rakuos-system-cosmic
   cosmic-ext-calculator
   cosmic-ext-storage

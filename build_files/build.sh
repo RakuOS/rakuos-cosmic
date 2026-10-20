@@ -41,7 +41,7 @@ rum install -y \
   NetworkManager-openvpn-gnome \
   NetworkManager-strongswan-gnome \
   ${RAKUOS_RELEASE_PKG} \
-  rakuos-software-qt \
+  rakuos-software-cosmic \
   rakuos-system-cosmic \
   rakuos-welcome-cosmic \
   system-config-printer
