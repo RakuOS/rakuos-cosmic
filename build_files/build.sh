@@ -49,6 +49,16 @@ rum install -y \
 ## Remove packages
 rum remove -y google-noto-color-emoji-fonts
 
+## start-cosmic: only import SSH_AUTH_SOCK when it's set
+# cosmic-session's start-cosmic runs `systemctl --user import-environment ...
+# SSH_AUTH_SOCK` unconditionally. Without gnome-keyring (45) nothing sets it,
+# so every login printed "Environment variable $SSH_AUTH_SOCK not set,
+# ignoring." Import it only when it has a value.
+START_COSMIC=/usr/bin/start-cosmic
+sed -i 's/^\(    systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP DCONF_PROFILE\) SSH_AUTH_SOCK$/\1 ${SSH_AUTH_SOCK:+SSH_AUTH_SOCK}/' "$START_COSMIC"
+grep -q 'DCONF_PROFILE ${SSH_AUTH_SOCK:+SSH_AUTH_SOCK}$' "$START_COSMIC" \
+    || { echo "ERROR: patching $START_COSMIC failed (cosmic-session layout changed?)"; exit 1; }
+
 ## Emoji Cosmic Terminal fix
 mkdir -p /usr/share/fonts/google-noto-color-emoji-fonts && \
 curl -fLo /usr/share/fonts/google-noto-color-emoji-fonts/NotoColorEmoji.ttf "https://github.com/googlefonts/noto-emoji/raw/main/2D/fonts/NotoColorEmoji.ttf" && \
