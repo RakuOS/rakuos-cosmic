@@ -145,7 +145,6 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   rakuos-release-cosmic-staging
   rakuos-software-cosmic
   rakuos-system-cosmic
-  power-profiles-daemon
   cosmic-ext-calculator
   cosmic-ext-storage
   cosmic-applet-clippy-land
