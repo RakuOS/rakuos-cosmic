@@ -51,6 +51,15 @@ rum install -y \
 ## Remove packages
 rum remove -y google-noto-color-emoji-fonts
 
+## Power profiles: power-profiles-daemon instead of TuneD
+# COSMIC Settings' power page works with power-profiles-daemon. Install it
+# with --allowerasing so it replaces tuned-ppd in the same transaction (both
+# provide and conflict on ppd-service, which cosmic-settings requires), then
+# remove tuned itself so it doesn't fight power-profiles-daemon over CPU
+# power settings. Fedora's preset enables power-profiles-daemon.service.
+rum install -y --allowerasing power-profiles-daemon
+rum remove -y tuned
+
 ## Emoji Cosmic Terminal fix
 mkdir -p /usr/share/fonts/google-noto-color-emoji-fonts && \
 curl -fLo /usr/share/fonts/google-noto-color-emoji-fonts/NotoColorEmoji.ttf "https://github.com/googlefonts/noto-emoji/raw/main/2D/fonts/NotoColorEmoji.ttf" && \
