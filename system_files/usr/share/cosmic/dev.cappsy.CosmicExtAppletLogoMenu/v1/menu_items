@@ -43,7 +43,7 @@
         (
             item_type: LaunchAction,
             label: Some("Software"),
-            command: Some("cosmic-store"),
+            command: Some("rakuos-software"),
         ),
         (
             item_type: LaunchAction,
