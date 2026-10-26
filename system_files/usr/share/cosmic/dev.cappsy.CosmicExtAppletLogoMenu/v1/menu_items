@@ -43,11 +43,16 @@
         (
             item_type: LaunchAction,
             label: Some("Software"),
-            command: Some("cosmic-store"),
+            command: Some("rakuos-software"),
         ),
         (
             item_type: LaunchAction,
-            label: Some("Settings"),
+            label: Some("RakuOS System Settings"),
+            command: Some("rakuos-system"),
+        ),
+        (
+            item_type: LaunchAction,
+            label: Some("Cosmic Settings"),
             command: Some("cosmic-settings"),
         ),
         (
