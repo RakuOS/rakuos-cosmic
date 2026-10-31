@@ -19,6 +19,14 @@ if [ "${RAKUOS_STAGING:-0}" = "1" ]; then
     RAKUOS_SYSTEM_PKG="rakuos-system-staging-cosmic"
 fi
 
+# And for the Software Center and the Welcome app.
+RAKUOS_SOFTWARE_PKG="rakuos-software-cosmic"
+RAKUOS_WELCOME_PKG="rakuos-welcome-cosmic"
+if [ "${RAKUOS_STAGING:-0}" = "1" ]; then
+    RAKUOS_SOFTWARE_PKG="rakuos-software-staging-cosmic"
+    RAKUOS_WELCOME_PKG="rakuos-welcome-staging-cosmic"
+fi
+
 # Terra ships disabled by default (third-party repos are opt-in), so enable
 # it here in case any packages below come from Terra; post-build.sh disables
 # it again before the image is finalized.
@@ -48,9 +56,9 @@ rum install -y \
   NetworkManager-openvpn-gnome \
   NetworkManager-strongswan-gnome \
   ${RAKUOS_RELEASE_PKG} \
-  rakuos-software-cosmic \
+  ${RAKUOS_SOFTWARE_PKG} \
   ${RAKUOS_SYSTEM_PKG} \
-  rakuos-welcome-cosmic \
+  ${RAKUOS_WELCOME_PKG} \
   system-config-printer
 
 ## Remove packages
