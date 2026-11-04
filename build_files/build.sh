@@ -12,6 +12,21 @@ if [ "${RAKUOS_STAGING:-0}" = "1" ]; then
     RAKUOS_RELEASE_PKG="rakuos-release-cosmic-staging"
 fi
 
+# Same for RakuOS System: staging images install its -staging build (from
+# rakuos-system's staging branch), which provides the stable name.
+RAKUOS_SYSTEM_PKG="rakuos-system-cosmic"
+if [ "${RAKUOS_STAGING:-0}" = "1" ]; then
+    RAKUOS_SYSTEM_PKG="rakuos-system-staging-cosmic"
+fi
+
+# And for the Software Center and the Welcome app.
+RAKUOS_SOFTWARE_PKG="rakuos-software-cosmic"
+RAKUOS_WELCOME_PKG="rakuos-welcome-cosmic"
+if [ "${RAKUOS_STAGING:-0}" = "1" ]; then
+    RAKUOS_SOFTWARE_PKG="rakuos-software-staging-cosmic"
+    RAKUOS_WELCOME_PKG="rakuos-welcome-staging-cosmic"
+fi
+
 # Terra ships disabled by default (third-party repos are opt-in), so enable
 # it here in case any packages below come from Terra; post-build.sh disables
 # it again before the image is finalized.
@@ -31,7 +46,6 @@ rum install -y \
   cosmic-ext-camera \
   cosmic-viewer \
   cosmic-ext-storage \
-  cosmic-ext-tasks \
   cosmic-ext-xcalendar \
   cosmic-monitor \
   cosmic-player \
@@ -39,13 +53,12 @@ rum install -y \
   cosmic-session \
   cosmic-ext-applet-workspace-icons \
   cutecosmic-qt6 \
-  gnome-keyring-pam \
   NetworkManager-openvpn-gnome \
   NetworkManager-strongswan-gnome \
   ${RAKUOS_RELEASE_PKG} \
-  rakuos-software-cosmic \
-  rakuos-system-cosmic \
-  rakuos-welcome-cosmic \
+  ${RAKUOS_SOFTWARE_PKG} \
+  ${RAKUOS_SYSTEM_PKG} \
+  ${RAKUOS_WELCOME_PKG} \
   system-config-printer
 
 ## Remove packages

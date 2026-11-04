@@ -143,7 +143,7 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   rakuos-welcome-cosmic
   rakuos-release-cosmic
   rakuos-release-cosmic-staging
-  rakuos-software-qt
+  rakuos-software-cosmic
   rakuos-system-cosmic
   cosmic-ext-calculator
   cosmic-ext-storage
@@ -152,10 +152,8 @@ cat >> /usr/share/rakuos/protected-packages.txt << 'EOF'
   cosmic-ext-applet-sysinfo
   cosmic-ext-applet-logomenu
   cosmic-ext-xcalendar
-  cosmic-ext-tasks
   cosmic-ext-camera
   cosmic-ext-applet-workspace-icons
-  gnome-keyring-pam
   NetworkManager-openvpn-gnome
   NetworkManager-strongswan-gnome
   system-config-printer
