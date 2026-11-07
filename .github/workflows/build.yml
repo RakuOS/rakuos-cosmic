@@ -50,15 +50,15 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { name: "cosmic", containerfile: "Containerfile", repo: "quay.io/rakuos/rakuos-cosmic", base_repo: "", extra: "", desc: "" }
+          - { name: "cosmic", containerfile: "Containerfile", repo: "quay.io/rakuos/rakuos-cosmic", base_repo: "quay.io/rakuos/rakuos-base", extra: "", desc: "" }
           - { name: "cosmic-v4", containerfile: "Containerfile", repo: "quay.io/rakuos/rakuos-cosmic-v4", base_repo: "quay.io/rakuos/rakuos-base-v4", extra: "", desc: "" }
           - { name: "cosmic-v3", containerfile: "Containerfile", repo: "quay.io/rakuos/rakuos-cosmic-v3", base_repo: "quay.io/rakuos/rakuos-base-v3", extra: "", desc: "" }
-          - { name: "cosmic-nvidia", containerfile: "Containerfile.nvidia", repo: "quay.io/rakuos/rakuos-cosmic-nvidia", base_repo: "", extra: "", desc: " (NVIDIA)" }
-          - { name: "cosmic-nvidia-v4", containerfile: "Containerfile.nvidia", repo: "quay.io/rakuos/rakuos-cosmic-nvidia-v4", base_repo: "quay.io/rakuos/rakuos-base-nvidia-v4", extra: "", desc: " (NVIDIA)" }
-          - { name: "cosmic-nvidia-v3", containerfile: "Containerfile.nvidia", repo: "quay.io/rakuos/rakuos-cosmic-nvidia-v3", base_repo: "quay.io/rakuos/rakuos-base-nvidia-v3", extra: "", desc: " (NVIDIA)" }
-          - { name: "cosmic-nvidia-legacy", containerfile: "Containerfile.nvidia", repo: "quay.io/rakuos/rakuos-cosmic-nvidia-legacy", base_repo: "quay.io/rakuos/rakuos-base-nvidia-legacy", extra: "", desc: " (NVIDIA legacy, 580xx)" }
-          - { name: "cosmic-nvidia-legacy-v4", containerfile: "Containerfile.nvidia", repo: "quay.io/rakuos/rakuos-cosmic-nvidia-legacy-v4", base_repo: "quay.io/rakuos/rakuos-base-nvidia-legacy-v4", extra: "", desc: " (NVIDIA legacy, 580xx)" }
-          - { name: "cosmic-nvidia-legacy-v3", containerfile: "Containerfile.nvidia", repo: "quay.io/rakuos/rakuos-cosmic-nvidia-legacy-v3", base_repo: "quay.io/rakuos/rakuos-base-nvidia-legacy-v3", extra: "", desc: " (NVIDIA legacy, 580xx)" }
+          - { name: "cosmic-nvidia", containerfile: "Containerfile", repo: "quay.io/rakuos/rakuos-cosmic-nvidia", base_repo: "quay.io/rakuos/rakuos-base-nvidia", extra: "RAKUOS_GPU=nvidia", desc: " (NVIDIA)" }
+          - { name: "cosmic-nvidia-v4", containerfile: "Containerfile", repo: "quay.io/rakuos/rakuos-cosmic-nvidia-v4", base_repo: "quay.io/rakuos/rakuos-base-nvidia-v4", extra: "RAKUOS_GPU=nvidia", desc: " (NVIDIA)" }
+          - { name: "cosmic-nvidia-v3", containerfile: "Containerfile", repo: "quay.io/rakuos/rakuos-cosmic-nvidia-v3", base_repo: "quay.io/rakuos/rakuos-base-nvidia-v3", extra: "RAKUOS_GPU=nvidia", desc: " (NVIDIA)" }
+          - { name: "cosmic-nvidia-legacy", containerfile: "Containerfile", repo: "quay.io/rakuos/rakuos-cosmic-nvidia-legacy", base_repo: "quay.io/rakuos/rakuos-base-nvidia-legacy", extra: "RAKUOS_GPU=nvidia", desc: " (NVIDIA legacy, 580xx)" }
+          - { name: "cosmic-nvidia-legacy-v4", containerfile: "Containerfile", repo: "quay.io/rakuos/rakuos-cosmic-nvidia-legacy-v4", base_repo: "quay.io/rakuos/rakuos-base-nvidia-legacy-v4", extra: "RAKUOS_GPU=nvidia", desc: " (NVIDIA legacy, 580xx)" }
+          - { name: "cosmic-nvidia-legacy-v3", containerfile: "Containerfile", repo: "quay.io/rakuos/rakuos-cosmic-nvidia-legacy-v3", base_repo: "quay.io/rakuos/rakuos-base-nvidia-legacy-v3", extra: "RAKUOS_GPU=nvidia", desc: " (NVIDIA legacy, 580xx)" }
     steps:
       - uses: actions/checkout@v6
 
